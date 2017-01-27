@@ -1,0 +1,12 @@
+﻿{
+  "disabled": false,
+  "bindings": [
+    {
+      "type": "eventHubTrigger",
+      "name": "myEventHubMessage",
+      "direction": "in",
+      "path": "dahatakeeventhubs",
+      "connection": "Endpoint=sb://dahatakeeventhubs.servicebus.windows.net/;SharedAccessKeyName=sa;SharedAccessKey=J1t4zHFUtOYwLAET3zFqkPOKroZOsQSSNCQaS0T+dRA="
+    }
+  ]
+}
