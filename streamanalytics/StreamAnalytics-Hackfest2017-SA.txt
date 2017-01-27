@@ -1,0 +1,28 @@
+--制御盤からのデータ蓄積
+SELECT
+    devicemapblob.PlantCD,
+    iothub.BpBatchNo,
+    iothub.BpTime,
+    iothub.Neriryo,
+    iothub.Setteichi,
+    iothub.Keiryochi,
+    iothub.Hyomensui,
+    iothub.yoseki,
+    iothub.RefSykNo,
+    iothub.RefSyaban,
+    iothub.RefHaigoNo
+INTO
+    [DeviceData]
+FROM
+    [iothub]
+    join [devicemapblob] ON iothub.DeviceID = devicemapblob.DeviceID
+
+--プラント状態の変更
+SELECT
+    devicemapblob.PlantCD,
+    iothub.Status
+INTO
+    [PlantStatus]
+FROM
+    [iothub]
+    join [devicemapblob] ON iothub.DeviceID = devicemapblob.DeviceID
