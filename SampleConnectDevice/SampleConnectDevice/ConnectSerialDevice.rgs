@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {5F3C302F-16B1-46A2-B0DF-89F1941DF117} = s 'ConnectSerialDevice Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{E99442AB-6849-4365-A3EB-76380ED6922C}'
+			Version = s '1.0'
+		}
+	}
+}

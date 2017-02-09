@@ -1,0 +1,16 @@
+HKCR
+{
+	NoRemove CLSID
+	{
+		ForceRemove {ED543B5D-BC2E-4529-85F7-52B8FD2E6AB3} = s 'ReceiveDataSerial Class'
+		{
+			ForceRemove Programmable
+			InprocServer32 = s '%MODULE%'
+			{
+				val ThreadingModel = s 'Both'
+			}
+			TypeLib = s '{E99442AB-6849-4365-A3EB-76380ED6922C}'
+			Version = s '1.0'
+		}
+	}
+}

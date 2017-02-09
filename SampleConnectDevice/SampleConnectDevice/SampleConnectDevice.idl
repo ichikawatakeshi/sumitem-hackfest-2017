@@ -1,0 +1,142 @@
+// SampleConnectDevice.idl : SampleConnectDevice の IDL ソース
+//
+
+// このファイルは、タイプ ライブラリ (SampleConnectDevice.tlb) およびマーシャリング コードを
+// 作成するために MIDL ツールによって処理されます。
+
+import "oaidl.idl";
+import "ocidl.idl";
+
+[
+	object,
+	uuid(5B242CEA-F3F0-4CC4-BB2F-1E0CE3F1BB2A),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IConnectSerialDevice : IDispatch{
+	[propget, id(1)] HRESULT SendDataSerial([out, retval] LPUNKNOWN* pVal);
+	[propput, id(1)] HRESULT SendDataSerial([in] LPUNKNOWN newVal);
+	[propget, id(2)] HRESULT ReceiveDataSerial([out, retval] LPUNKNOWN* pVal);
+	[propput, id(2)] HRESULT ReceiveDataSerial([in] LPUNKNOWN newVal);
+	[propget, id(3)] HRESULT SendFlag([out, retval] BYTE* pVal);
+	[propput, id(3)] HRESULT SendFlag([in] BYTE newVal);
+	[propget, id(4)] HRESULT ReceiveFlag([out, retval] BYTE* pVal);
+	[propput, id(4)] HRESULT ReceiveFlag([in] BYTE newVal);
+	[id(5)] HRESULT StartThread([in] BSTR bstrCOMPort);
+	[id(6)] HRESULT EndThread();
+};
+[
+	object,
+	uuid(5AA87535-BB84-4794-BA05-1C48903D6363),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface ISendDataSerial : IDispatch{
+	[propget, id(1)] HRESULT HMCD([out, retval] BYTE* pVal);
+	[propput, id(1)] HRESULT HMCD([in] BYTE newVal);
+	[propget, id(2)] HRESULT SykCD([out, retval] SHORT* pVal);
+	[propput, id(2)] HRESULT SykCD([in] SHORT newVal);
+	[propget, id(3)] HRESULT SyohinCD([out, retval] BSTR* pVal);
+	[propput, id(3)] HRESULT SyohinCD([in] BSTR newVal);
+	[propget, id(4)] HRESULT NeriKbn([out, retval] BYTE* pVal);
+	[propput, id(4)] HRESULT NeriKbn([in] BYTE newVal);
+	[propget, id(5)] HRESULT Kyodo([out, retval] BSTR* pVal);
+	[propput, id(5)] HRESULT Kyodo([in] BSTR newVal);
+	[propget, id(6)] HRESULT Slump([out, retval] BSTR* pVal);
+	[propput, id(6)] HRESULT Slump([in] BSTR newVal);
+	[propget, id(7)] HRESULT Kotsusun([out, retval] BSTR* pVal);
+	[propput, id(7)] HRESULT Kotsusun([in] BSTR newVal);
+	[propget, id(8)] HRESULT Cement([out, retval] BSTR* pVal);
+	[propput, id(8)] HRESULT Cement([in] BSTR newVal);
+	[propget, id(9)] HRESULT Hinmei([out, retval] BSTR* pVal);
+	[propput, id(9)] HRESULT Hinmei([in] BSTR newVal);
+	[propget, id(10)] HRESULT Seizoryo([out, retval] DOUBLE* pVal);
+	[propput, id(10)] HRESULT Seizoryo([in] DOUBLE newVal);
+	[propget, id(11)] HRESULT Syaban([out, retval] BSTR* pVal);
+	[propput, id(11)] HRESULT Syaban([in] BSTR newVal);
+	[propget, id(12)] HRESULT GenbaName([out, retval] BSTR* pVal);
+	[propput, id(12)] HRESULT GenbaName([in] BSTR newVal);
+	[propget, id(13)] HRESULT SekoName([out, retval] BSTR* pVal);
+	[propput, id(13)] HRESULT SekoName([in] BSTR newVal);
+	[propget, id(14)] HRESULT Biko([out, retval] BSTR* pVal);
+	[propput, id(14)] HRESULT Biko([in] BSTR newVal);
+	[propget, id(15)] HRESULT DispSykSykryo([out, retval] DOUBLE* pVal);
+	[propput, id(15)] HRESULT DispSykSykryo([in] DOUBLE newVal);
+	[propget, id(16)] HRESULT DispSykDaisu([out, retval] SHORT* pVal);
+	[propput, id(16)] HRESULT DispSykDaisu([in] SHORT newVal);
+	[propget, id(17)] HRESULT DispSumSuryo([out, retval] DOUBLE* pVal);
+	[propput, id(17)] HRESULT DispSumSuryo([in] DOUBLE newVal);
+	[propget, id(18)] HRESULT DispSumDaisu([out, retval] SHORT* pVal);
+	[propput, id(18)] HRESULT DispSumDaisu([in] SHORT newVal);
+	[propget, id(19)] HRESULT Jis([out, retval] BYTE* pVal);
+	[propput, id(19)] HRESULT Jis([in] BYTE newVal);
+	[propget, id(20)] HRESULT Yoseki([out, retval] DOUBLE* pVal);
+	[propput, id(20)] HRESULT Yoseki([in] DOUBLE newVal);
+	[propget, id(21)] HRESULT Setteichi([in] SHORT nIndex, [out, retval] DOUBLE* pVal);
+	[propput, id(21)] HRESULT Setteichi([in] SHORT nIndex, [in] DOUBLE newVal);
+	[id(22)] HRESULT ClearData();
+};
+[
+	object,
+	uuid(C5B29D46-C335-4545-A79C-73F3EA98B27D),
+	dual,
+	nonextensible,
+	pointer_default(unique)
+]
+interface IReceiveDataSerial : IDispatch{
+	[propget, id(1)] HRESULT Status([out, retval] BSTR* pVal);
+	[propput, id(1)] HRESULT Status([in] BSTR newVal);
+	[propget, id(2)] HRESULT BpBatchNo([out, retval] SHORT* pVal);
+	[propput, id(2)] HRESULT BpBatchNo([in] SHORT newVal);
+	[propget, id(3)] HRESULT BpTime([out, retval] DATE* pVal);
+	[propput, id(3)] HRESULT BpTime([in] DATE newVal);
+	[propget, id(4)] HRESULT Neriryo([out, retval] DOUBLE* pVal);
+	[propput, id(4)] HRESULT Neriryo([in] DOUBLE newVal);
+	[propget, id(5)] HRESULT Setteichi([out, retval] BSTR* pVal);
+	[propput, id(5)] HRESULT Setteichi([in] BSTR newVal);
+	[propget, id(6)] HRESULT Keiryochi([out, retval] BSTR* pVal);
+	[propput, id(6)] HRESULT Keiryochi([in] BSTR newVal);
+	[propget, id(7)] HRESULT Hyomensui([out, retval] BSTR* pVal);
+	[propput, id(7)] HRESULT Hyomensui([in] BSTR newVal);
+	[propget, id(8)] HRESULT Yoseki([out, retval] DOUBLE* pVal);
+	[propput, id(8)] HRESULT Yoseki([in] DOUBLE newVal);
+	[propget, id(9)] HRESULT RefSykNo([out, retval] SHORT* pVal);
+	[propput, id(9)] HRESULT RefSykNo([in] SHORT newVal);
+	[propget, id(10)] HRESULT RefSyaban([out, retval] BSTR* pVal);
+	[propput, id(10)] HRESULT RefSyaban([in] BSTR newVal);
+	[propget, id(11)] HRESULT RefHaigoNo([out, retval] BSTR* pVal);
+	[propput, id(11)] HRESULT RefHaigoNo([in] BSTR newVal);
+	[id(12)] HRESULT ClearData();
+};
+[
+	uuid(E99442AB-6849-4365-A3EB-76380ED6922C),
+	version(1.0),
+]
+library SampleConnectDeviceLib
+{
+	importlib("stdole2.tlb");
+	[		
+		uuid(5F3C302F-16B1-46A2-B0DF-89F1941DF117)		
+	]
+	coclass ConnectSerialDevice
+	{
+		[default] interface IConnectSerialDevice;
+	};
+	[		
+		uuid(A4A61C1C-4988-4B88-ABA4-B14395F81AD3)		
+	]
+	coclass SendDataSerial
+	{
+		[default] interface ISendDataSerial;
+	};
+	[		
+		uuid(ED543B5D-BC2E-4529-85F7-52B8FD2E6AB3)		
+	]
+	coclass ReceiveDataSerial
+	{
+		[default] interface IReceiveDataSerial;
+	};
+};
+
